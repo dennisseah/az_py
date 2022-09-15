@@ -7,6 +7,11 @@ from azurepy.errors.exceptions import ServiceError
 
 class BlobStorage:
     def __init__(self, name: str):
+        """Constructor
+
+        Args:
+            name (str): blob account name
+        """
         auth = Authentication()
         self.name = name
 
@@ -15,7 +20,15 @@ class BlobStorage:
             credential=auth.credential(),
         )
 
-    def get_properties(self):
+    def get_properties(self) -> object:
+        """Return properties of blob account
+
+        Raises:
+            ServiceError: when blob account does not exist or connection issues
+
+        Returns:
+            object: blob account properties
+        """
         try:
             prop = self.client.get_service_properties()
             return {
@@ -32,7 +45,15 @@ class BlobStorage:
         except ServiceRequestError:
             raise ServiceError(f"Could not get properties for blob account, {self.name}")
 
-    def list_containers(self):
+    def list_containers(self) -> list[object]:
+        """Return list of container's properties
+
+        Raises:
+            ServiceError: when blob account does not exist or connection issues
+
+        Returns:
+            list[object]: list of container's properties
+        """
         try:
             return [self.__str_blob_container(c) for c in self.client.list_containers()]
         except ServiceRequestError:

@@ -7,8 +7,8 @@ from azure.core.polling import LROPoller
 
 from context import azurepy, AZURE_CLIENT_BUILD_FN  # noqa F401
 
-from azurepy.services.azureClient import AzureClient
-from azurepy.services.resourceGroups import ResourceGroups
+from azurepy.services.azure_client import AzureClient
+from azurepy.services.resource_groups import ResourceGroups
 
 
 class ResourceGroupData:
@@ -71,7 +71,7 @@ class TestResourceGroup(TestCase):
         assert self.__test_delete_resource_group("test1") is None
 
     def __test_delete_resource_group(self, name):
-        with patch("azurepy.services.azureClient.AzureClient.build") as mock_azure_client:
+        with patch("azurepy.services.azure_client.AzureClient.build") as mock_azure_client:
             mock_azure_client.return_value = MockResourceManagementClient()
             client = AzureClient().build()
             resource_groups = ResourceGroups(client)

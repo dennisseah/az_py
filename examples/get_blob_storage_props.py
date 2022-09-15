@@ -3,7 +3,7 @@ import sys
 
 from context import azurepy  # noqa F401
 
-from azurepy.services.blobStorage import BlobStorage
+from azurepy.services.blob_storage import BlobStorage
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:

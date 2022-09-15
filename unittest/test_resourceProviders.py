@@ -4,8 +4,8 @@ from unittest.mock import patch
 
 from context import AZURE_CLIENT_BUILD_FN, azurepy  # noqa F401
 
-from azurepy.services.azureClient import AzureClient
-from azurepy.services.resourceProviders import ResourceProviders
+from azurepy.services.azure_client import AzureClient
+from azurepy.services.resource_providers import ResourceProviders
 
 
 class ResourceTypeData:

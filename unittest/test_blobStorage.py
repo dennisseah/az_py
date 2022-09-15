@@ -9,7 +9,7 @@ from unittest.mock import patch, MagicMock
 from context import azurepy  # noqa F401
 
 from azurepy.errors.exceptions import ServiceError
-from azurepy.services.blobStorage import BlobStorage
+from azurepy.services.blob_storage import BlobStorage
 
 
 class MockRetentionPolicy:

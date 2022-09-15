@@ -5,7 +5,7 @@ from unittest.mock import patch
 
 from context import azurepy  # noqa F401
 
-from azurepy.services.azureClient import AzureClient, SUBSCRIPTION_KEY
+from azurepy.services.azure_client import AzureClient, SUBSCRIPTION_KEY
 from azurepy.errors.exceptions import MissingEnvironmentParameterError
 
 

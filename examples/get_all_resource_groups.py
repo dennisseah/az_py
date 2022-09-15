@@ -1,7 +1,7 @@
 from context import azurepy  # noqa F401
 
-from azurepy.services.azureClient import AzureClient
-from azurepy.services.resourceGroups import ResourceGroups
+from azurepy.services.azure_client import AzureClient
+from azurepy.services.resource_groups import ResourceGroups
 
 if __name__ == "__main__":
     client = AzureClient().build()

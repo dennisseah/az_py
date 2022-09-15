@@ -5,7 +5,7 @@ from azure.core.polling import LROPoller
 from azure.mgmt.resource.resources import ResourceManagementClient
 import azure.mgmt.resource.resources.models as models
 
-from azurepy.services.resourceProviders import ResourceProviders
+from azurepy.services.resource_providers import ResourceProviders
 
 
 class Resources:
@@ -18,7 +18,9 @@ class Resources:
         self.client = client
         self.resource_providers = ResourceProviders(client)
 
-    def all_resources(self, resource_group: models.ResourceGroup) -> List[models.ResourceListResult]:
+    def all_resources(
+        self, resource_group: models.ResourceGroup
+    ) -> List[models.ResourceListResult]:
         """Return all resources in a resource group.
 
         Args:

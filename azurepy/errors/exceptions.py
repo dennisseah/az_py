@@ -4,3 +4,7 @@ class MissingEnvironmentParameterError(Exception):
 
 class AuthenticationError(Exception):
     pass
+
+
+class ServiceError(Exception):
+    pass

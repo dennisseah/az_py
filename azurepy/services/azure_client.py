@@ -15,10 +15,17 @@ class AzureClient:
         Returns:
             ResourceManagementClient: Azure resource management client.
         """
-        subscription_id = os.getenv(SUBSCRIPTION_KEY)
-
-        if not subscription_id:
-            raise MissingEnvironmentParameterError(f"{SUBSCRIPTION_KEY} environment parameter value was missing.")
+        subscription_id = self.subscription_id()
 
         authentication = Authentication()
         return ResourceManagementClient(authentication.credential(), subscription_id)
+
+    def subscription_id(self):
+        subscription_id = os.getenv(SUBSCRIPTION_KEY)
+
+        if not subscription_id:
+            raise MissingEnvironmentParameterError(
+                f"{SUBSCRIPTION_KEY} environment parameter value was missing."
+            )
+
+        return subscription_id
